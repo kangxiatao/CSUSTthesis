@@ -20,14 +20,15 @@
 \newcommand{\sanhao}{\fontsize{16pt}{16pt}\selectfont}      % 三号, 1.倍行距
 \newcommand{\xiaosan}{\fontsize{15pt}{15pt}\selectfont}     % 小三, 1.倍行距
 \newcommand{\sihao}{\fontsize{14pt}{14pt}\selectfont}       % 四号, 1.0倍行距
-\newcommand{\xiaosi}{\fontsize{12.5pt}{12.5pt}\selectfont}  % 小四, 1.倍行距
+\newcommand{\xiaosi}{\fontsize{12pt}{12pt}\selectfont}      % 小四, 1.倍行距
 \newcommand{\wuhao}{\fontsize{10.5pt}{10.5pt}\selectfont}   % 五号, 单倍行距
 \newcommand{\xiaowu}{\fontsize{9pt}{9pt}\selectfont}        % 小五, 单倍行距
+\newcommand{\xiaoxiao}{\fontsize{4pt}{4pt}\selectfont}        % 小小  用于调节行距
 
 % 设置一个字，对应宽度压缩至 75%
 % \newcommand{\bianhei}{\setCJKmainfont{hei}[FakeStretch=0.75]}    
 
-\setlength{\headheight}{20pt}
+% \setlength{\headheight}{15pt}
 %\CJKcaption{gb_452}
 \CJKtilde  % 重新定义了波浪符~的意义
 \newcommand\prechaptername{第}
@@ -63,25 +64,27 @@
 
 \makeatletter
 \renewcommand\normalsize{
-  \@setfontsize\normalsize{12.5pt}{12.5pt} % 小四对应12pt
+  \@setfontsize\normalsize{12pt}{12pt} % 小四对应12pt
   \setlength\abovedisplayskip{4pt}
   \setlength\abovedisplayshortskip{4pt}
   \setlength\belowdisplayskip{\abovedisplayskip}
   \setlength\belowdisplayshortskip{\abovedisplayshortskip}
     \let\@listi\@listI}
-\def\defaultfont{\renewcommand{\baselinestretch}{1.65}\normalsize\selectfont}
+% 行间距  1.5 * 1.3
+\def\defaultfont{\renewcommand{\baselinestretch}{1.95}\normalsize\selectfont}
+\def\sk20font{\renewcommand{\baselinestretch}{1.6}\normalsize\selectfont}
 
 
 % 设置行距和段落间垂直距离
 
-\setlength{\baselineskip}{20pt}
+% \setlength{\baselineskip}{20pt}
 \renewcommand{\CJKglue}{\hskip 0.5pt plus \baselineskip} %加大字间距，使每行35个字
 
 
 \makeatother
 
 %%%%%%%%%%%%% Contents %%%%%%%%%%%%%%%%%
-\renewcommand{\contentsname}{目\quad录}
+\renewcommand{\contentsname}{\xiaosan\hei 目\quad录}
 \setcounter{tocdepth}{2}
 \titlecontents{chapter}[0em]{\xiaosi\hei}%
              {\prechaptername~~\thecontentslabel~~\postchaptername~~~}{} %
@@ -93,12 +96,12 @@
             {\thecontentslabel\quad}{} %
             {\hspace{.25em}\titlerule*[5pt]{$\cdot$}\xiaosi\contentspage}
 \renewcommand{\cftdotsep}{1.1}
-\renewcommand{\listfigurename}{插图索引}
+\renewcommand{\listfigurename}{\xiaosan\hei 插图索引}
 \setcounter{lofdepth}{1}
 %\titlefigures{chapter}[1em]{\xiaosi\hei}%
 %             {\prechaptername~~\thecontentslabel~~\postchaptername~~~}{} %
 %            {\titlerule*[5pt]{$\cdot$}\xiaosi\contentspage}
-\renewcommand{\listtablename}{附表索引}
+\renewcommand{\listtablename}{\xiaosan\hei 附表索引}
 
 
 %%删除表格和插图因章不同中的空行%%%
@@ -130,11 +133,11 @@
 \setlength{\parindent}{2em}
 \renewcommand{\chaptername}{\prechaptername\arabic{chapter}\postchaptername}
 % \renewcommand{\chaptername}{\prechaptername\chinese{chapter}\postchaptername}
-\titleformat{\chapter}{\centering\xiaoer\hei}{\chaptername}{1em}{}
-\titlespacing{\chapter}{0pt}{0pt}{18pt}
-\titleformat{\section}{\xiaosan\hei}{\thesection}{1em}{}
+\titleformat{\chapter}{\centering\sihao\hei}{\chaptername}{1em}{}
+\titlespacing{\chapter}{0pt}{14pt}{14pt}
+\titleformat{\section}{\xiaosi\hei}{\thesection}{1em}{}
 \titlespacing{\section}{0pt}{12pt}{12pt}
-\titleformat{\subsection}{\sihao\hei}{\thesubsection}{0.5em}{}
+\titleformat{\subsection}{\xiaosi\hei}{\thesubsection}{0.5em}{}
 \titlespacing{\subsection}{0pt}{6pt}{6pt}
 \titleformat{\subsubsection}{\xiaosi\hei}{\thesubsubsection}{0.5em}{}
 \titlespacing{\subsubsection}{0pt}{6pt}{6pt}
@@ -155,15 +158,17 @@
 %% 定制浮动图形和表格标题样式
 \makeatletter
 \long\def\@makecaption#1#2{%
-   \vskip\abovecaptionskip
-   \sbox\@tempboxa{\centering\wuhao\hei{#1~~#2} }%
+  %  \vskip\abovecaptionskip
+   \vskip 6pt
+   \sbox\@tempboxa{\centering\wuhao\song{#1~~#2} }%
    \ifdim \wd\@tempboxa >\hsize
-     \centering\wuhao\hei{#1~~#2} \par
+     \centering\wuhao\song{#1~~#2} \par
    \else
      \global \@minipagefalse
      \hb@xt@\hsize{\hfil\box\@tempboxa\hfil}%
    \fi
-   \vskip\belowcaptionskip}
+  %  \vskip\belowcaptionskip}
+   \vskip 6pt}
 \makeatother
 \captiondelim{~~~~} %用来控制longtable表头分隔符
 
@@ -206,7 +211,7 @@
 \makeatletter
 \renewenvironment{thebibliography}[1]{%
    \chapter*{\bibname}%
-   \xiaosi
+   \wuhao
    \list{\@biblabel{\@arabic\c@enumiv}}%
         {\renewcommand{\makelabel}[1]{##1\hfill}
          \setlength{\baselineskip}{21pt}
@@ -295,7 +300,7 @@
 \def\elevel#1{\def\@elevel{#1}}\def\@elevel{}
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%   封面   %%%%%%%%%%%%%%%%%%%%%%%
 
 \newlength{\@title@width}
 \def\@put@covertitle#1{\makebox[\@title@width][s]{#1}}
@@ -352,7 +357,7 @@
   }
   \end{center}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%   中文内封   %%%%%%%%%%%%%%%%%%%%%%%
 
 \clearpage
 \thispagestyle{empty} %去掉页眉页脚
@@ -406,7 +411,7 @@
   \end{spacing}
 }
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%   英文内封   %%%%%%%%%%%%%%%%%%%%%%%
 
 \clearpage
 \thispagestyle{empty} %去掉页眉页脚
@@ -455,14 +460,17 @@
 %\setcounter{page}{1}
 %\includepdf{Copyright.pdf}
 % 如果需要打印稿，即需要打印后手写，取消该部分内容注释
-\pagestyle{fancy}
-\fancyhf{}
-\fancyfoot[C]{\song\xiaowu ~\thepage~}
-\renewcommand{\headrulewidth}{0pt}
+% \pagestyle{fancy}
+% \fancyhf{}
+% \fancyfoot[C]{\song\xiaowu ~\thepage~}
+% \renewcommand{\headrulewidth}{0pt}
 
-\addcontentsline{toc}{chapter}{学位论文原创性声明和学位论文版权使用授权书}
+\clearpage
+\thispagestyle{empty} %去掉页眉页脚
+
+% \addcontentsline{toc}{chapter}{学位论文原创性声明和学位论文版权使用授权书}
 {
-\setcounter{page}{1}
+% \setcounter{page}{1}
 \qquad\\
 \begin{center}{\hei\xiaosi\bf \@untitle}\end{center}\par
 \begin{center}{\hei\xiaosi\bf \@declaretitle}\end{center}\par
@@ -475,21 +483,26 @@
 \vspace{2\baselineskip}
 \begin{center}{\hei\xiaosi\bf \@authorizationtitle}\end{center}\par
 {
-\song\defaultfont{\@authorizationcontent}\\\\
-% \song\xiaowu\\
+\song\defaultfont{\@authorizationcontent}\\
+% \song\xiaoxiao{ \quad }\\
+\begin{table}[h]
+\vskip -0.40in
+\renewcommand{\arraystretch}{1.95}
 \begin{tabular}{ll}
 \song\defaultfont\@authorizationadd\par&\\
 &1、保密\song\xiaoer{$\Box$}\song\xiaosi ，在\underline{\qquad}年解密后适用于本授权书\\
 &2、不保密\song\xiaoer{$\Box$}。\\
 &(请在以上相应方框内打“$\surd$”) \\
 \end{tabular}
+\vskip -0.40in
+\end{table}
 }
-\vspace{2\baselineskip}
+\vspace{1.5\baselineskip}
 
 {
 \song\xiaosi
 \@authorsigncap \makebox[3.5cm][s]{}  \@signdatecap \makebox[1.5cm][s]{} 年 \makebox[1cm][s]{} 月 \makebox[1cm][s]{} 日 \\
-\\
+\vspace{0.6\baselineskip}\\
 \indent
 \@supervisorsigncap \makebox[3.5cm][s]{}  \@signdatecap \makebox[1.5cm][s]{} 年 \makebox[1cm][s]{} 月 \makebox[1cm][s]{} 日
 }
@@ -535,6 +548,7 @@
 \fancyfoot[C]{\song\xiaowu ~\thepage~}
 \renewcommand{\headrulewidth}{0pt}
 
+\setcounter{page}{1}
 \addcontentsline{toc}{chapter}{摘\quad 要}
 \chapter*{\centering\xiaoer\ 摘\qquad 要}
 \song\defaultfont
@@ -545,7 +559,7 @@
 \noindent
 {\hei\xiaosi 关键词： \@ckeywords}
 
-%%%%%%%%%%%%%%%%%%%   English Abstract  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%   English Abstract   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \clearpage
 \pagestyle{fancy}
 \fancyhf{}
