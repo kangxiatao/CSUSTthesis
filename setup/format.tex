@@ -65,8 +65,8 @@
 \makeatletter
 \renewcommand\normalsize{
   \@setfontsize\normalsize{12pt}{12pt} % 小四对应12pt
-  \setlength\abovedisplayskip{4pt}
-  \setlength\abovedisplayshortskip{4pt}
+  \setlength\abovedisplayskip{6pt}
+  \setlength\abovedisplayshortskip{6pt}
   \setlength\belowdisplayskip{\abovedisplayskip}
   \setlength\belowdisplayshortskip{\abovedisplayshortskip}
     \let\@listi\@listI}
@@ -134,7 +134,7 @@
 \renewcommand{\chaptername}{\prechaptername\arabic{chapter}\postchaptername}
 % \renewcommand{\chaptername}{\prechaptername\chinese{chapter}\postchaptername}
 \titleformat{\chapter}{\centering\sihao\hei}{\chaptername}{1em}{}
-\titlespacing{\chapter}{0pt}{14pt}{14pt}
+\titlespacing{\chapter}{0pt}{4pt}{14pt}  % 前面空一行实在太多了，行距问题
 \titleformat{\section}{\xiaosi\hei}{\thesection}{1em}{}
 \titlespacing{\section}{0pt}{12pt}{12pt}
 \titleformat{\subsection}{\xiaosi\hei}{\thesubsection}{0.5em}{}
@@ -238,14 +238,16 @@
 \setlength{\bibhang}{2em} %每个条目自第二行起缩进的距离
 
 % 参考文献引用作为上标出现
-\newcommand{\mycite}[1]{\scalebox{1.3}[1.3]{\raisebox{-0.65ex}{\cite{#1}}}}
+% \newcommand{\mycite}[1]{\scalebox{1.3}[1.3]{\raisebox{-0.65ex}{\cite{#1}}}}
+
 %\newcommand{\citenormal}[1]{\cite{#1}}
-%\makeatletter
+% \makeatletter
 %   \def\@cite#1#2{\textsuperscript{[{#1\if@tempswa , #2\fi}]}}
-%\makeatother
+% \makeatother
 
 %% 引用格式
-\bibpunct{[}{]}{,}{s}{}{,}
+\bibpunct{[}{]}{,}{s}{}{,}  % 上标编号
+% \bibpunct{[}{]}{,}{n}{}{,}
 
 %%%%%%%%%% Cover %%%%%%%%%%%%%%%%%
 % 封面、摘要、版权、致谢格式定义
@@ -321,7 +323,7 @@
     \xiaosi\hei{学校代号}&  \underline{\makebox[\@title@width][c]{\xiaosi\hei\@chnunumer}}&\qquad \qquad \qquad \qquad \qquad & \xiaosi\hei{学\qquad 号}&  \underline{\makebox[\@title@width][c]{\xiaosi\hei\@cnumber}}\\ 
     \xiaosi\hei{分~~类~~号}&  \underline{\makebox[\@title@width][c]{\xiaosi\hei\@cclassnumber}}&\qquad \qquad \qquad \qquad \qquad & \xiaosi\hei{密\qquad 级}&  \underline{\makebox[\@title@width][c]{\xiaosi\hei\@csecret}} \\
      & & & & \\ % 用于空行
-     & & & & \\
+    %  & & & & \\
     \end{tabular}
   }
 
@@ -359,7 +361,8 @@
 
 %%%%%%%%%%%%%%%%%%%   中文内封   %%%%%%%%%%%%%%%%%%%%%%%
 
-\clearpage
+
+\clearpage{\thispagestyle{empty}\cleardoublepage}  % 空白页，控制下一页为奇数页
 \thispagestyle{empty} %去掉页眉页脚
 
 \noindent
@@ -411,9 +414,10 @@
   \end{spacing}
 }
 
+
 %%%%%%%%%%%%%%%%%%%   英文内封   %%%%%%%%%%%%%%%%%%%%%%%
 
-\clearpage
+\clearpage{\thispagestyle{empty}\cleardoublepage}  % 空白页，控制下一页为奇数页
 \thispagestyle{empty} %去掉页眉页脚
 
 \begin{center}
@@ -454,6 +458,9 @@
 
 \end{titlepage}
 
+
+%%%%%%%%%%%%%%%%%%%   ot   %%%%%%%%%%%%%%%%%%%%%%%
+
 %  另起一页： 独创性声明和学位论文版权使用授权书
 % 如果需要上传稿包含版权页，取消这部分内容注释
 %\addcontentsline{toc}{chapter}{学位论文原创性声明和学位论文版权使用授权书}
@@ -465,7 +472,7 @@
 % \fancyfoot[C]{\song\xiaowu ~\thepage~}
 % \renewcommand{\headrulewidth}{0pt}
 
-\clearpage
+\clearpage{\thispagestyle{empty}\cleardoublepage}  % 空白页，控制下一页为奇数页
 \thispagestyle{empty} %去掉页眉页脚
 
 % \addcontentsline{toc}{chapter}{学位论文原创性声明和学位论文版权使用授权书}
@@ -510,7 +517,7 @@
 
 
 %%%%%%%%%%%%%%%%%%%   Abstract and Keywords  %%%%%%%%%%%%%%%%%%%%%%%
-\clearpage
+\clearpage{\thispagestyle{empty}\cleardoublepage}  % 空白页，控制下一页为奇数页
 \pagestyle{fancy}
 \fancyhf{}
 \fancyfoot[C]{\song\xiaowu ~\thepage~}
@@ -559,8 +566,9 @@
 \noindent
 {\hei\xiaosi 关键词： \@ckeywords}
 
+
 %%%%%%%%%%%%%%%%%%%   English Abstract   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\clearpage
+\clearpage{\thispagestyle{empty}\cleardoublepage}  % 空白页，控制下一页为奇数页
 \pagestyle{fancy}
 \fancyhf{}
 \fancyfoot[C]{\song\xiaowu ~\thepage~}
@@ -577,5 +585,5 @@
 {\xiaosi\textbf{Key Words:} \@ekeywords}
 }
 
-\clearpage
+\clearpage{\thispagestyle{empty}\cleardoublepage}  % 空白页，控制下一页为奇数页
 \makeatother

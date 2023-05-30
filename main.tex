@@ -24,15 +24,16 @@
 
 
 %%%%%%%%%%   目录   %%%%%%%%%%
-\defaultfont
+\clearpage{\thispagestyle{empty}\cleardoublepage}  % 空白页，控制下一页为奇数页
+\sk20font
 \addcontentsline{toc}{chapter}{目~~~~录}
 \tableofcontents                           % 中文目录
-\clearpage
+\clearpage{\thispagestyle{empty}\cleardoublepage}  % 空白页，控制下一页为奇数页
 \newcommand{\loflabel}{图~}
 \renewcommand{\numberline}[1]{\song\xiaosi\loflabel~#1\hspace*{\baselineskip}}
 \addcontentsline{toc}{chapter}{插图索引}
 \listoffigures
-\clearpage
+\clearpage{\thispagestyle{empty}\cleardoublepage}  % 空白页，控制下一页为奇数页
 \newcommand{\lotlabel}{表~}
 \renewcommand{\numberline}[1]{\song\xiaosi\lotlabel~#1\hspace*{\baselineskip}}
 \addcontentsline{toc}{chapter}{附表索引}
@@ -75,6 +76,7 @@
 
 
 %%%%%%%%%%  参考文献  %%%%%%%%%%
+\clearpage{\thispagestyle{empty}\cleardoublepage}  % 空白页，控制下一页为奇数页
 \fancyhead[CO]{\song\wuhao ~参考文献~}  % 手动修改页眉
 \fancypagestyle{plain}{\fancyhead[CO]{\song\wuhao ~参考文献~}}
 
@@ -86,9 +88,13 @@
 
 
 %%%%%%%%%%  致谢和附录  %%%%%%%%%%
+\clearpage{\thispagestyle{empty}\cleardoublepage}  % 空白页，控制下一页为奇数页
 \bibliography{references/reference}
+\clearpage{\thispagestyle{empty}\cleardoublepage}  % 空白页，控制下一页为奇数页
 \include{appendix/acknowledgements}               % 致谢
+\clearpage{\thispagestyle{empty}\cleardoublepage}  % 空白页，控制下一页为奇数页
 \include{appendix/publications}                   % 发表论文和参加科研情况说明
+\clearpage{\thispagestyle{empty}\cleardoublepage}  % 空白页，控制下一页为奇数页
 
 
 \clearpage
