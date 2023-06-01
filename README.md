@@ -14,13 +14,21 @@
 
   学硕和博士封面请对应修改```preface/cover.tex``` 和 ```setup/format.tex``` 中的变量
 
-- 用pdflatex编译
+- 用pdflatex编译。推荐使用[VsCode配置LaTeX环境](https://kangxiatao.github.io/2021/06/30/23/clgj6ojjj000fssik11imeehb/)。或者[overleaf在线](https://cn.overleaf.com/)。
 
 - 编写注意
 
   - 为了中英文更好的混排，请在中英文切换时添加```~```符号（好想改成xelatex啊）
   - 图片和表格要注意格式。规范文档中未给出图表和文字的间距，可手动调节到合适的位置。表格上下两根线为 1.5 磅，中间线为 0.75 磅。
   - \ref 引用公式要添加()
+  - \item 要加括号。模板没有写自己的的list，所以特意说明一下。
+  ```
+	\begin{enumerate}[label={(\arabic*)}, itemindent=1.6cm]  % 24pt
+	\item xxx
+	\item xxx
+  ```
+  - 参考文献的标题要统一，大小写不能乱来。文献信息尽量全，页面、doi等。
+  - 图片标题上不要添加引用，图片也尽量用自己的图，哪怕对着画一个。存在争议，但是听老师的，老师说版权问题。
 
 - 目前存在的问题
 
