@@ -55,7 +55,7 @@
 
     直接用```gbt7714-numerical.bst```（cite和natbib宏包冲突问题），暂时没发现其他格式问题。 非常感谢：[GB/T 7714—2015 BibTeX Style](https://github.com/zepinglee/gbt7714-bibtex-style)
 	
-	规范文档里示例为```.```，之前会议论文已把```\\```改为```.```（[修改方法](https://github.com/zepinglee/gbt7714-bibtex-style/issues/119)）。但考虑到以国标为准，析出文献应该用```\\```，已改回。
+	规范文档里会议论文示例为```.```，之前已把```\\```改为```.```（[修改方法](https://github.com/zepinglee/gbt7714-bibtex-style/issues/119)）。但考虑到以国标为准，析出文献应该用```\\```，已改回。
 	
 	计算机学科确实很多文字是上传到arXiv在线发表，关于arXiv上的文献国标没有特殊规定，很多人都认为可以分到```[A]```，arXiv的预印本属于科技档案，我也比较认同，所以arXiv的文献格式为```xxx[A]. 2023. arXiv: 2000.66888```。
 	
