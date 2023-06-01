@@ -23,11 +23,14 @@
   - \ref 引用公式要添加()
   - \item 要加括号。模板没有写自己的的list，所以特意说明一下。
   ```
-	\begin{enumerate}[label={(\arabic*)}, itemindent=1.6cm]  % 24pt
+	\begin{enumerate}[label={(\arabic*)}, itemindent=1.6cm]
 	\item xxx
 	\item xxx
   ```
-  - 参考文献的标题要统一，大小写不能乱来。文献信息尽量全，页面、doi等。
+  - 参考文献
+	- 参考文献的标题统一为小写，大写缩写请用```{}```包起来，```e.g. {Lottery tickets in {RL} and {NLP}}```。
+	- 文献信息尽量全，页面、doi等。谷歌学术上很多会议论文给的是arXiv，信息不全。
+	- arXiv的文献最好在arXiv的页面```Export BibTeX Citation```。也可以用[arXiv引文格式在线](https://arxiv2bibtex.org/?q=2001.09678&format=bibtex)。
   - 图片标题上不要添加引用，图片也尽量用自己的图，哪怕对着画一个。存在争议，但是听老师的，老师说版权问题。
 
 - 目前存在的问题
@@ -50,7 +53,11 @@
 
   - 参考文献问题
 
-    直接用```gbt7714-numerical.bst```（cite和natbib宏包冲突问题），会议论文已把```\\```改为```.```（规范文档里示例为```.```），暂时没发现其他格式问题。 非常感谢：[GB/T 7714—2015 BibTeX Style](https://github.com/zepinglee/gbt7714-bibtex-style)
+    直接用```gbt7714-numerical.bst```（cite和natbib宏包冲突问题），暂时没发现其他格式问题。 非常感谢：[GB/T 7714—2015 BibTeX Style](https://github.com/zepinglee/gbt7714-bibtex-style)
+	
+	规范文档里示例为```.```，之前会议论文已把```\\```改为```.```（[修改方法](https://github.com/zepinglee/gbt7714-bibtex-style/issues/119)）。但考虑到以国标为准，析出文献应该用```\\```，已改回。
+	
+	计算机学科确实很多文字是上传到arXiv在线发表，关于arXiv上的文献国标没有特殊规定，很多人都认为可以分到```[A]```，arXiv的预印本属于科技档案，我也比较认同，所以arXiv的文献格式为```xxx[A]. 2023. arXiv: 2000.66888```。
 	
   - 代码规范问题
 	
