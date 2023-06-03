@@ -7,7 +7,7 @@
 % @author: Kang Xiatao (kangxiatao@gmail.com)
 % """
 
-%%%%%%%%%% Fonts Definition and Basics %%%%%%%%%%%%%%%%%
+%%%%%%%%%% Fonts Definition and Basics %%%%%%%%%%%%%%%%% 
 \newcommand{\song}{\CJKfamily{song}}    % 宋体
 \newcommand{\fs}{\CJKfamily{fs}}        % 仿宋体
 \newcommand{\kai}{\CJKfamily{kai}}      % 楷体
@@ -37,6 +37,10 @@
 % 调整罗列环境的布局 % Modified by Li Jianmin
 \setitemize{leftmargin=0em,itemindent=3em,itemsep=0em,partopsep=0em,parsep=0em,topsep=-0em}
 \setenumerate{leftmargin=0em,itemindent=3em,itemsep=0em,partopsep=0em,parsep=0em,topsep=0em}
+
+% Algorithmc 的输入输出
+% \renewcommand{\algorithmicrequire}{\textbf{Input:}} % Use Input in the format of Algorithm
+% \renewcommand{\algorithmicensure}{\textbf{Output:}} % Use Output in the format of Algorithm
 
 
 %避免宏包 hyperref 和 arydshln 不兼容带来的目录链接失效的问题。
@@ -320,8 +324,8 @@
     % \setlength{\tabcolsep}{6pt}  % 列间距
     \renewcommand{\arraystretch}{1.5}  % 行间距
     \begin{tabular}{lcclc}
-    \xiaosi\hei{学校代号}&  \underline{\makebox[\@title@width][c]{\xiaosi\hei\@chnunumer}}&\qquad \qquad \qquad \qquad \qquad & \xiaosi\hei{学\qquad 号}&  \underline{\makebox[\@title@width][c]{\xiaosi\hei\@cnumber}}\\ 
-    \xiaosi\hei{分~~类~~号}&  \underline{\makebox[\@title@width][c]{\xiaosi\hei\@cclassnumber}}&\qquad \qquad \qquad \qquad \qquad & \xiaosi\hei{密\qquad 级}&  \underline{\makebox[\@title@width][c]{\xiaosi\hei\@csecret}} \\
+    \xiaosi\hei{学校代号}&  \underline{\makebox[\@title@width][c]{\textsf{\xiaosi\hei\@chnunumer}}}&\qquad \qquad \qquad \qquad \qquad & \xiaosi\hei{学\qquad 号}&  \underline{\makebox[\@title@width][c]{\textsf{\xiaosi\hei\@cnumber}}}\\ 
+    \xiaosi\hei{分~~类~~号}&  \underline{\makebox[\@title@width][c]{\textsf{\xiaosi\hei\@cclassnumber}}}&\qquad \qquad \qquad \qquad \qquad & \xiaosi\hei{密\qquad 级}&  \underline{\makebox[\@title@width][c]{\xiaosi\hei\@csecret}} \\
      & & & & \\ % 用于空行
     %  & & & & \\
     \end{tabular}
@@ -370,9 +374,9 @@
 {
 \renewcommand{\arraystretch}{1.5}  % 行间距
 \begin{tabular}{ll}
-\makebox[2cm][s]{\xiaosi\hei 学校代号:}\xiaosi\hei~~\@chnunumer \\
-\makebox[2cm][s]{\xiaosi\hei 学\qquad~号:}\xiaosi\hei~~\@cnumber\\
-\makebox[2cm][s]{\xiaosi\hei 密\qquad~级:}\xiaosi\hei~~\@csecret\\
+\makebox[2cm][s]{\xiaosi\hei 学校代号:}\textsf{\xiaosi\hei~~\@chnunumer} \\
+\makebox[2cm][s]{\xiaosi\hei 学\qquad~号:}\textsf{\xiaosi\hei~~\@cnumber} \\
+\makebox[2cm][s]{\xiaosi\hei 密\qquad~级:}\xiaosi\hei~~\@csecret \\
 \end{tabular}
 }
 
@@ -479,8 +483,8 @@
 {
 % \setcounter{page}{1}
 \qquad\\
-\begin{center}{\hei\xiaosi\bf \@untitle}\end{center}\par
-\begin{center}{\hei\xiaosi\bf \@declaretitle}\end{center}\par
+\begin{center}{\hei\xiaosi \textbf{\@untitle}}\end{center}\par
+\begin{center}{\hei\xiaosi \textbf{\@declaretitle}}\end{center}\par
 \song\defaultfont{\@declarecontent}\par
 \vspace*{1cm}
 {\song\xiaosi
@@ -488,7 +492,7 @@
 \@signdatecap \makebox[1.5cm][s]{} 年 \makebox[1cm][s]{} 月 \makebox[1cm][s]{} 日
 }
 \vspace{2\baselineskip}
-\begin{center}{\hei\xiaosi\bf \@authorizationtitle}\end{center}\par
+\begin{center}{\hei\xiaosi \textbf{\@authorizationtitle}}\end{center}\par
 {
 \song\defaultfont{\@authorizationcontent}\\
 % \song\xiaoxiao{ \quad }\\
@@ -564,7 +568,7 @@
 
 %\hangafter=1\hangindent=52.3pt\noindent   %如果取消该行注释，关键词换行时将会自动缩进
 \noindent
-{\hei\xiaosi 关键词： \@ckeywords}
+{\hei\xiaosi \textbf{关键词}： \@ckeywords}
 
 
 %%%%%%%%%%%%%%%%%%%   English Abstract   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
