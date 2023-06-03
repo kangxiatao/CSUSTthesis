@@ -10,9 +10,11 @@
 \chnuname{长沙理工大学}
 \cclassnumber{TP391}
 \cnumber{20208051427}
+% \cnumber{*}
 \csecret{公开}
 \cmajor{工程硕士}  % 学位类别
-\cheading{专业硕士学位论文}      % 设置正文的页眉，以及自己的学位级别
+\cdegreethesis{专业硕士学位论文}      % 自己的学位论文级别
+\cheading{硕士学位论文}      % 设置正文的页眉
 \dtitle{神经网络剪枝与稀疏模型泛化研究}%封面用论文标题，自己可手动断行\\
 \ctitle{神经网络剪枝与稀疏模型泛化研究}  %页眉标题无需断行
 \etitle{Research on Neural Network Pruning and Sparse Model Generalization}
@@ -21,20 +23,24 @@
 \csubject{电子信息}   %学位领域
 \cauthortitle{研究生}     % 学位
 \cauthor{康夏涛}   %学生姓名
+% \cauthor{*}   %学生姓名
 \ename{KANG~Xiatao}
-\cbe{B.E.~(Changsha University of Science \& Technology)~2020}
+% \ename{*}
+\cbe{B.E.~(Hubei Polytechnic University)~2020}
 % \cms{M.S.~(University)~2020}
 \cdegree{thesis}
 \cclass{Master of engineering}
 % \emajor{Computer Science and Technology}
 \ehnu{Changsha University of Science \& Technology}
 \esupervisor{Li Ping}
+% \esupervisor{*}
 \csupervisortitle{指导教师}
-\csupervisor{李平~教授} %导师姓名
+\csupervisor{李平~~教授} %导师姓名
+% \csupervisor{*} %导师姓名
 \elevel{Professor} %导师职称
-\ocsupervisor{~} %校外导师
-\cchair{~~~~~~~~}
-\ddate{2023年6月} %论文答辩日期
+\ocsupervisor{曾彬~~高级工程师} %校外导师
+\cchair{肖晓丽}
+\ddate{2023年5月} %论文答辩日期
 \edate{April,~2023}
 
 \untitle{长沙理工大学}
@@ -57,17 +63,28 @@
 \cdate{2023年4月} %论文提交日期
 % \cdate{\the\year 年\the\month 月 \the\day 日} % 此日期显示格式为阿拉伯数字 如2012年4月25日
 \cabstract{
-中文摘要应将学位论文的内容要点简短明了地表达出来，约500~800字左右（限一页），字体为宋体小四号。内容应包括工作目的、研究方法、成果和结论。要突出本论文的创新点，语言力求精炼。为了便于文献检索，应在本页下方另起一行注明论文的关键词（3-7个）。
+    大规模神经网络模型涌现出了让人类叹为观止的能力，但随之而来的是不可解释性和千亿级参数量，这使得相关研究比以往任何时候都更具挑战性。最近的一些研究从神经网络剪枝的角度来探讨网络的运行机理，而不是仅仅为了模型压缩。主要的工作集中在训练前剪枝和稀疏模型深层结构研究，且训练前修剪模型后在训练阶段也能起到加速作用，有很强的应用价值。本文以提升稀疏模型泛化为目标，对训练前剪枝展开研究，探讨了在每轮训练中由一批样本训练引起待训练样本的损失隐式减少的新视角，提出了在稀疏网络过程中权重表现力转移的概念。
+
+    对于隐式损失下降，本文给出了其称为梯度耦合流的一阶近似，并探索了耦合流与稀疏模型泛化之间的联系，隐式损失理想地以细粒度的方式描述了精度波动的原因。由隐式损失下降的特性，本文提出敏感于梯度耦合流的权重度量准则，在初始化时捕获那些对性能提升最敏感的权重。
+    
+    通过权重表现力转移的性质，本文对度量指标做动态分析，发现若要维持网络原有的性能，剩余权重将承担来自删减权重的表现力。为了实现最优的表现力调度，本文提出称为淘金的训练前修剪方案，通过多指标多流程的步骤引导表现力转移，并设计强化学习智能体实现淘金策略的自动化。
+    
+    另外，本文的梯度耦合流敏感度量和强化学习淘金方案都在图像分类任务中进行了实证研究。梯度耦合流敏感在训练前的单次剪枝和迭代剪枝中都有优异的表现，而且耦合流的细分扩展更好的证明了耦合流的有效。强化学习淘金取得了非常好的稀疏效果，在任意压缩率下呈现了不错的性能，且可扩展并适用于大规模模型和数据集。实证表明，梯度耦合流和权重作用力为研究网络运行机理提供了有效的方法，并对提高过参数化网络可解释性和稳定性做出了贡献。
 }
 
-\ckeywords{关键词1;~~关键词2;~~关键词3;~~关键词4}
+\ckeywords{神经网络剪枝;~~稀疏模型泛化;~~训练前剪枝;~~强化学习剪枝;~~梯度耦合流;~~权重表现力}
 
 \eabstract{
-Externally pressurized gas bearing has been widely used in the field of aviation, semiconductor, weave, and measurement apparatus because of its advantage of high accuracy, little friction, low heat distortion, long life-span, and no pollution. In this thesis, based on the domestic and overseas researching……
+    The emergence of large-scale neural network models has produced astonishing capabilities, but it also brings with it uninterpretability and hundreds of billions of parameters, which makes related research more challenging than ever. Recent research has explored the operating mechanism of neural networks from the perspective of network pruning, rather than simply compressing models. The main focus is on pruning before training and structural research on deep sparse models, and pruning models before training can also accelerate the training process, with strong practical value. This dissertation aims to improve the generalization of sparse models, conducts research on pruning before training, explores a new perspective on loss implicit decrease of the data to be trained caused by one-batch training during each round, and proposes the concept of weight expressive force transfer in sparse network processes.
 
+    For the implicit loss reduction, this dissertation provides its first-order approximation called gradient coupled flow, and explores the relationship between coupled flow and the generalization of sparse models. The implicit loss ideally describes the cause of accuracy fluctuations in a fine-grained manner. Based on the characteristics of implicit loss reduction, this dissertation proposes a weight measure criterion sensitive to gradient coupled flow, which captures the weights that are most sensitive to performance improvement at initialization.
+
+    Based on the perspective of weight expressive force transfer, this dissertation analyzes the measurement indicators and finds that the remaining weights will bear the expressive force from the deleted weights in order to maintain the network original performance. In order to achieve optimal expressive force scheduling, this dissertation proposes a pruning before training scheme called panning, which guides the transfer of expressive force through a multi-indicator and multi-process step, and designs an intelligent agent based on reinforcement learning to automate this process.
+
+    In addition, the gradient coupled flow sensitivity measure and the reinforcement learning panning scheme proposed in this dissertation were empirically studied in image classification tasks. The gradient coupled flow sensitivity measure performed well in both single-shot and iterative pruning before training, and the finer subdivision of the coupled flow better demonstrated its effectiveness. The reinforcement learning panning achieved very good sparse effects, showing excellent performance at any compression rate and being applicable to large-scale models and datasets. The empirical results show that the gradient coupled flow and weight expressive force transfer provide effective methods for studying the operation mechanism of neural networks, and contribute to improving the interpretability and stability of over-parameterized networks.
 }
 
-\ekeywords{Key Word1;~~Key Word 2;~~Key Word 3;~~Key Word 4}
+\ekeywords{neural network pruning;~~sparse model generalization;~~pruning before training;~~reinforcement learning pruning;~~gradient coupled flow;~~weight expressive force}
 
 \makecover
 
