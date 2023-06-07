@@ -14,7 +14,7 @@
 
   学硕和博士封面请对应修改```preface/cover.tex``` 和 ```setup/format.tex``` 中的变量
 
-- 用pdflatex编译。推荐使用[VsCode配置LaTeX环境](https://kangxiatao.github.io/2021/06/30/23/clgj6ojjj000fssik11imeehb/)。或者[overleaf在线](https://cn.overleaf.com/)。
+- 用pdflatex编译。推荐使用[VsCode配置LaTeX环境](https://kangxiatao.github.io/2021/06/30/23/clgj6ojjj000fssik11imeehb/)。不推荐使用[overleaf在线](https://cn.overleaf.com/)(pdflatex编译找不到字体，很麻烦。另外个人认为overleaf很难用)。
 
 - 编写注意
 
