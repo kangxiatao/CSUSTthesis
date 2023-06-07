@@ -14,14 +14,14 @@
 
   学硕和博士封面请对应修改```preface/cover.tex``` 和 ```setup/format.tex``` 中的变量
 
-- 用pdflatex编译。推荐使用[VsCode配置LaTeX环境](https://kangxiatao.github.io/2021/06/30/23/clgj6ojjj000fssik11imeehb/)。不推荐使用[overleaf在线](https://cn.overleaf.com/)(pdflatex编译找不到字体，很麻烦。另外个人认为overleaf很难用)。
+- 用pdflatex编译（如果可以读档，我一定会用xelatex）。推荐使用[VsCode配置LaTeX环境](https://kangxiatao.github.io/2021/06/30/23/clgj6ojjj000fssik11imeehb/)。不推荐使用[overleaf在线](https://cn.overleaf.com/)(pdflatex编译找不到字体，很麻烦。另外个人认为overleaf很难用)。
 
 - 编写注意
 
-  - 为了中英文更好的混排，请在中英文切换时添加```~```符号。请注意手动控制标点符号，不要出现在首行。（好想改成xelatex啊）
+  - 为了中英文更好的混排，请在中英文切换时添加```~```符号。请注意手动控制标点符号，不要出现在首行。
   - 图片和表格要注意格式。规范文档中未给出图表和文字的间距，可手动调节到合适的位置。表格上下两根线为 1.5 磅，中间线为 0.75 磅。
   - \ref 引用公式要添加()
-  - \item 要加括号。模板没有写自己的的list，所以特意说明一下。
+  - \item 要加括号。模板没有写自己的list，所以特意说明一下。
   ```
 	\begin{enumerate}[label={(\arabic*)}, itemindent=1.6cm]
 	\item xxx
