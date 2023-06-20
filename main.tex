@@ -87,8 +87,14 @@
 
 %%%%%%%%%%  参考文献  %%%%%%%%%%
 \clearpage{\thispagestyle{empty}\cleardoublepage}  % 控制下一页为奇数页
-\fancyhead[CO]{\song\wuhao ~参考文献~}  % 手动修改页眉
-\fancypagestyle{plain}{\fancyhead[CO]{\song\wuhao ~参考文献~}}
+
+% 参考文献之后不需要页眉
+\fancyhead[CO]{\song\wuhao }  % 手动修改页眉
+\fancypagestyle{plain}{\fancyhead[CO]{\song\wuhao }}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot[C]{\song\wuhao ~\thepage~}
+\renewcommand{\headrulewidth}{0pt}
 
 \defaultfont
 \bibliographystyle{gbt7714-numerical}
